@@ -55,53 +55,6 @@ String::String(const char *initializer_string)
     m_capacity = pow(2, ((m_size / 2) + 1));
 }
 
-/////////////////////////////////////////
-
-void String::push_back(char ch)
-{
-    // if no capacity
-    if (m_size >= m_capacity)
-    {
-        resize(m_capacity * 2);
-    }
-
-    m_data[m_size++] = ch;
-}
-
-char String::char_at(int index)
-{
-    if (index >= m_size)
-    {
-        cerr << "Index out of bound" << endl;
-        return 'c';
-    }
-
-    return m_data[index];
-}
-
-int String::size()
-{
-    return m_size;
-}
-
-// overload + operator
-String String::operator+(String string_2)
-{
-    // adding two strings
-    String result;
-    for (int i = 0; i < size(); i++)
-    {
-        result.push_back(char_at(i));
-    }
-
-    for (int i = 0; i < string_2.size(); i++)
-    {
-        result.push_back(string_2.char_at(i));
-    }
-
-    return result;
-}
-
 // lets create this function
 void String::operator=(const char *char_string)
 {
@@ -134,12 +87,42 @@ ostream &operator<<(ostream &os, const String &str)
     os << str.m_data;
     return os;
 }
+/////////////////////////////////////////
 
-// changing the character at a location
-// not writable to this location
-// immutable strings hence
+void String::push_back(char ch)
+{
+    // if no capacity
+    if (m_size >= m_capacity)
+    {
+        resize(m_capacity * 2);
+    }
 
-// substring function
+    m_data[m_size++] = ch;
+}
+
+int String::size()
+{
+    return m_size;
+}
+
+// overload + operator
+String String::operator+(String string_2)
+{
+    // adding two strings
+    String result;
+    for (int i = 0; i < size(); i++)
+    {
+        result.push_back(m_data[i]);
+    }
+
+    for (int i = 0; i < string_2.size(); i++)
+    {
+        result.push_back(string_2[i]);
+    }
+
+    return result;
+}
+
 String String::substr(int starting_idx, int num_elements)
 {
     String result;
