@@ -117,13 +117,14 @@ void String::operator=(const char *char_string)
 }
 
 // overload [] operator
-char String::operator[](int index)
+char &String::operator[](int index)
 {
 
     if (index >= m_size || index < 0)
     {
+        char error_message = '#';
         cerr << "Invalid index value" << endl;
-        return '0';
+        return error_message;
     }
     return m_data[index];
 }

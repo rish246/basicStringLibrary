@@ -16,9 +16,14 @@ int main()
     // third_substr(startIdx, numElements)
     String third_substr = third_string.substr(1, 3);
 
-    cout << "Third string = " << third_string << endl;
     cout << "Third substring = " << third_substr << endl;
-    // third_string.update_char(1, 'x');
+    cout << "Second location of third substr " << third_substr[1] << endl;
+
+    // sent a reference to 2nd element of t
+    // i can not alter the value of 1st element using simple assignment
+    third_substr[1] = 't';
+    cout << "Third substring = " << third_substr << endl;
+    cout << "Second location of third substr " << third_substr[1] << endl;
 }
 
 // overload << operator << operator(forEach function)

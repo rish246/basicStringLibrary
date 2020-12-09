@@ -31,7 +31,7 @@ public:
     // overload + operator
     String operator+(String string_2);
 
-    char operator[](int);
+    char &operator[](int);
 
     friend std::ostream &operator<<(std::ostream &os, const String &str);
 
