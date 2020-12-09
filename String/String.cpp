@@ -128,39 +128,6 @@ char &String::operator[](int index)
     }
     return m_data[index];
 }
-// update the character at ith location
-void String::update_char(int index, char ch)
-{
-    // make sure index is in range
-    if (index >= m_size || index < 0)
-    {
-        cerr << "Invalid index passed" << endl;
-        return;
-    }
-
-    // create new array
-    char *temp = new char[m_size];
-
-    // update the new array
-
-    for (int i = 0; i < m_size; i++)
-    {
-        if (i == index)
-            temp[i] = ch;
-        else
-            temp[i] = m_data[i];
-    }
-
-    // for (int i = 0; i < m_size; i++)
-    // {
-    //     cout << m_data[i] << endl;
-    // }
-    // delete the char array ... can't do this why
-
-    // delete an array and then assign a new array to the old one
-
-    // cout << temp << endl;
-}
 
 ostream &operator<<(ostream &os, const String &str)
 {
