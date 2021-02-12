@@ -123,6 +123,12 @@ String String::operator+(String string_2)
     return result;
 }
 
+void String::operator+=(const String &str)
+{
+    // change the value of this->m_data
+    (*this) = (*this) + str;
+}
+
 String String::substr(int starting_idx, int num_elements)
 {
     String result;

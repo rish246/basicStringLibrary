@@ -19,6 +19,18 @@ public:
 
     String(const char *initializer_string);
 
+    String operator+(String string_2);
+
+    char &operator[](int);
+
+    void operator+=(const String &str);
+
+    friend std::ostream &operator<<(std::ostream &os, const String &str);
+
+    // overload the += operator
+    // use string += string2
+    //      string += someChar
+
     void push_back(char ch);
 
     char char_at(int index);
@@ -29,11 +41,6 @@ public:
     int size();
 
     // overload + operator
-    String operator+(String string_2);
-
-    char &operator[](int);
-
-    friend std::ostream &operator<<(std::ostream &os, const String &str);
 
     String substr(int starting_idx, int num_elements);
 
